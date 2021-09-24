@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Tarjeta de presentación</title>
+</head>
+<body>
+	<!-- Agregando fuente externa -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
+	<!-- Elemento raíz sobre el que React trabaja -->
+	<div id="root"></div>
+	<!-- Importando scripts externos de React -->
+	<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+	<!-- Empezando script de Babel -->
+	<script type="text/babel">
+		{/* Creando variable con referencia al elemento root del body de este HTML */}
+		const rootElement = document.getElementById('root');
+
+		{/* Declarando clase Card que es un componente de React */}
+		class Card extends React.Component {
+
+			render() {
+				return (
+					/* Abriendo fragmento de React para devolver un solo parámetro */
+					/* {this.props.imagen} recibe la referencia a la imagen, está declarado más abajo en la llamada de render */
+					/* Cada vez que se usa {this.props.[prop]} es para llamar alguno de los props declarados en render, ahí se pueden cambiar */
+					<React.Fragment>
+						<div className="tarjeta">
+							<div className="foto">
+								<img src={this.props.imagen} alt="Foto persona" id="foto-persona"></img>
+							</div>
+							<div className="nombre">
+								<div className="name">{this.props.nombre}</div>
+								<div className="occupation">Estudiante</div>
+						     
+								<div className="info">
+									<div className="item">
+										<span className="valor">{this.props.edad}</span>
+										<span className="etiqueta">Edad</span>
+									</div>
+									<div className="item">
+										<span className="valor">{this.props.escuela}</span>
+										<span className="etiqueta">Escuela</span>
+									</div>
+									<div className="item">
+										<span className="valor">{this.props.carrera}</span>
+										<span className="etiqueta">Carrera</span>
+									</div>
+								</div>
+								<div className="enlaces">
+									<a href={this.props.github}><img src="gh.png" alt="Icono GitHub" className="icono"></img></a>
+									<a href={this.props.linkedin}><img src="li.png" alt="Icono LinkedIn" className="icono"></img></a>
+								</div>
+							</div>
+						</div>
+					</React.Fragment>
+				);
+			}
+		}
+
+		{/* Haciendo llamada a render para generar en la página lo declarado en el return de arriba */}
+		{/* Dentro del render se reciben dos elementos, los props a utilizar y el elemento donde se van a aplicar los cambios */}
+		{/* Los cambios son aplicados sobre la variable rootElement que tiene la referencia al elemento root del HTML */}
+		ReactDOM.render(
+			<Card nombre="Irving Silva Díaz" edad="21" escuela="ITESM" carrera="ITIt" imagen="pp.png" github="https://github.com/IrViNg256" linkedin="https://www.linkedin.com/in/irving-silva-d%C3%ADaz-5643721b7"/>,
+			rootElement
+		)
+	</script>
+</body>
+</html>
