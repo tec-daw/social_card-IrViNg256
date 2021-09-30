@@ -20,45 +20,44 @@
 		const rootElement = document.getElementById('root');
 
 		{/* Declarando clase Card que es un componente de React */}
-		class Card extends React.Component {
+		function Card(props) {
+			const [nombre, setNombre] = React.useState(props.nombre);
 
-			render() {
-				return (
-					/* Abriendo fragmento de React para devolver un solo parámetro */
-					/* {this.props.imagen} recibe la referencia a la imagen, está declarado más abajo en la llamada de render */
-					/* Cada vez que se usa {this.props.[prop]} es para llamar alguno de los props declarados en render, ahí se pueden cambiar */
-					<React.Fragment>
-						<div className="tarjeta">
-							<div className="foto">
-								<img src={this.props.imagen} alt="Foto persona" id="foto-persona"></img>
+			return (
+				/* Abriendo fragmento de React para devolver un solo parámetro */
+				/* {this.props.imagen} recibe la referencia a la imagen, está declarado más abajo en la llamada de render */
+				/* Cada vez que se usa {this.props.[prop]} es para llamar alguno de los props declarados en render, ahí se pueden cambiar */
+				<React.Fragment>
+					<div className="tarjeta">
+						<div className="foto">
+							<img src={props.imagen} alt="Foto persona" id="foto-persona"></img>
+						</div>
+						<div className="nombre">
+							<div className="name">{nombre}</div>
+							<div className="occupation">Estudiante</div>
+					     	<button onClick={() => setNombre("Stonks")}>Cambiar nombre</button>
+							<div className="info">
+								<div className="item">
+									<span className="valor">{props.edad}</span>
+									<span className="etiqueta">Edad</span>
+								</div>
+								<div className="item">
+									<span className="valor">{props.escuela}</span>
+									<span className="etiqueta">Escuela</span>
+								</div>
+								<div className="item">
+									<span className="valor">{props.carrera}</span>
+									<span className="etiqueta">Carrera</span>
+								</div>
 							</div>
-							<div className="nombre">
-								<div className="name">{this.props.nombre}</div>
-								<div className="occupation">Estudiante</div>
-						     
-								<div className="info">
-									<div className="item">
-										<span className="valor">{this.props.edad}</span>
-										<span className="etiqueta">Edad</span>
-									</div>
-									<div className="item">
-										<span className="valor">{this.props.escuela}</span>
-										<span className="etiqueta">Escuela</span>
-									</div>
-									<div className="item">
-										<span className="valor">{this.props.carrera}</span>
-										<span className="etiqueta">Carrera</span>
-									</div>
-								</div>
-								<div className="enlaces">
-									<a href={this.props.github}><img src="gh.png" alt="Icono GitHub" className="icono"></img></a>
-									<a href={this.props.linkedin}><img src="li.png" alt="Icono LinkedIn" className="icono"></img></a>
-								</div>
+							<div className="enlaces">
+								<a href={props.github}><img src="gh.png" alt="Icono GitHub" className="icono"></img></a>
+								<a href={props.linkedin}><img src="li.png" alt="Icono LinkedIn" className="icono"></img></a>
 							</div>
 						</div>
-					</React.Fragment>
-				);
-			}
+					</div>
+				</React.Fragment>
+			);
 		}
 
 		{/* Haciendo llamada a render para generar en la página lo declarado en el return de arriba */}
