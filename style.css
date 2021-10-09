@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  font-family: "Source Code Pro", monospace;
+}
+
+.tarjeta {
+  width: 500px;
+  height: 300px;
+  border-radius: 0.75rem;
+  background: #14213d;
+  display: grid;
+  grid-template-columns: 40% auto;
+  color: #e5e5e5;
+  align-items: center;
+}
+
+.nombre {
+  padding: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+}
+
+.occupation {
+  font-weight: 600;
+  color: #fca311;
+}
+
+.foto {
+  display: grid;
+  place-items: center; 
+}
+
+#foto-persona {
+  max-width: 100%;  
+  height: auto; 
+}
+
+.icono {
+  max-width: 50px;  
+  height: auto; 
+}
+
+.info {
+  margin-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.item .valor {
+  font-size: 1rem;
+}
+
+.item .etiqueta {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fca311;
+}
+
+.enlaces {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 0.75rem;
+}
+
+.enlaces .valor {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fca311;
+}
+
+.enlaces .etiqueta {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
